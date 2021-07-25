@@ -9,7 +9,7 @@ def deployApp(newDeployment, kubeconfig) {
     newDeployment.spec.template.metadata.labels.version = "${env.VERSION}"
     newDeployment.spec.template.spec.containers[0].image = "${env.DOCKER_IMAGE}:${env.VERSION}"
 
-    sh "rm deployment.yaml" || true
+    sh "rm deployment.yaml"
     writeYaml file: "deployment.yaml", data: newDeployment
 
     sh "kubectl --kubeconfig ${kubeconfig} apply -f deployment.yaml"
