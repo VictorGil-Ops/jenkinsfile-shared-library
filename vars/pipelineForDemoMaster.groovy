@@ -1,6 +1,5 @@
 
 
-package org.jenkinsci.plugins.workflow.steps.durable_task;
 import groovy.json.JsonSlurper
 
 def deployApp(newDeployment, kubeconfig) {
